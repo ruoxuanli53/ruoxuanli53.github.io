@@ -1,0 +1,14 @@
+---
+title: Research
+---
+
+## Development of Nanobody-Based CAR-T Therapy for Triple-Negative Breast Cancer
+
+<img src="CAR-T Therapy.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cancer.gov/publications/dictionaries/cancer-terms/def/car-t-cell-therapy', 'blank');"/>
+
+Triple-Negative Breast Cancer (TNBC) is an aggressive subtype of breast cancer characterized by the absence of estrogen and progesterone receptors and a lack of HER2 amplification, which makes it particularly challenging to treat with current targeted therapies. TNBC is associated with poor prognosis and limited treatment options, highlighting the urgent need for innovative therapeutic approaches. Chimeric Antigen Receptor T-cell (CAR-T) therapy represents a groundbreaking immunotherapy that genetically modifies a patient's T cells to target and eliminate cancer cells. Nanobodies, derived from single-domain antibodies, are small and highly specific antibody fragments with enhanced tumor penetration and stability compared to traditional antibodies. The development of nanobody-based CAR-T therapy integrates the precision of nanobodies with the efficacy of CAR-T cells, offering a novel strategy to combat TNBC. This project aims to optimize nanobody-based CAR-T constructs to selectively target TNBC cells while minimizing off-target effects, representing a significant advancement in personalized cancer immunotherapy.
+
+
+----
+
+

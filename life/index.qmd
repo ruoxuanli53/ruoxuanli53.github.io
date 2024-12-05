@@ -1,0 +1,13 @@
+---
+title: "Meet Donnie & Momo!"
+---
+
+::: {layout-ncol=2}
+
+![](Donnie.jpg)
+
+![](Momo.jpg)
+
+:::
+
+Donnie and Momo are the little angels in my family. Donnie, our 5-year-old male Bicolor British Shorthair, is the perfect gentleman—he wouldn’t bite or scratch anyone. He’s like a fluffy little butler who’s always there to keep you company with his calm and soothing presence. Then there’s Momo, our mischievous baby girl! She’s a spunky Domestic Shorthair we rescued from the street, and though she’s not even a year old yet, she’s already stolen everyone’s hearts with her endless energy and playful spirit!

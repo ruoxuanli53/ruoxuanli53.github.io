@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "cv/index.html",
+    "href": "cv/index.html",
+    "title": "Curriculum vitae",
+    "section": "",
+    "text": "Download current CV"
+  },
+  {
+    "objectID": "life/index.html",
+    "href": "life/index.html",
+    "title": "Meet Donnie & Momo!",
+    "section": "",
+    "text": "Donnie and Momo are the little angels in my family. Donnie, our 5-year-old male Bicolor British Shorthair, is the perfect gentleman—he wouldn’t bite or scratch anyone. He’s like a fluffy little butler who’s always there to keep you company with his calm and soothing presence. Then there’s Momo, our mischievous baby girl! She’s a spunky Domestic Shorthair we rescued from the street, and though she’s not even a year old yet, she’s already stolen everyone’s hearts with her endless energy and playful spirit!"
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Triple-Negative Breast Cancer (TNBC) is an aggressive subtype of breast cancer characterized by the absence of estrogen and progesterone receptors and a lack of HER2 amplification, which makes it particularly challenging to treat with current targeted therapies. TNBC is associated with poor prognosis and limited treatment options, highlighting the urgent need for innovative therapeutic approaches. Chimeric Antigen Receptor T-cell (CAR-T) therapy represents a groundbreaking immunotherapy that genetically modifies a patient’s T cells to target and eliminate cancer cells. Nanobodies, derived from single-domain antibodies, are small and highly specific antibody fragments with enhanced tumor penetration and stability compared to traditional antibodies. The development of nanobody-based CAR-T therapy integrates the precision of nanobodies with the efficacy of CAR-T cells, offering a novel strategy to combat TNBC. This project aims to optimize nanobody-based CAR-T constructs to selectively target TNBC cells while minimizing off-target effects, representing a significant advancement in personalized cancer immunotherapy."
+  },
+  {
+    "objectID": "research/index.html#development-of-nanobody-based-car-t-therapy-for-triple-negative-breast-cancer",
+    "href": "research/index.html#development-of-nanobody-based-car-t-therapy-for-triple-negative-breast-cancer",
+    "title": "Research",
+    "section": "",
+    "text": "Triple-Negative Breast Cancer (TNBC) is an aggressive subtype of breast cancer characterized by the absence of estrogen and progesterone receptors and a lack of HER2 amplification, which makes it particularly challenging to treat with current targeted therapies. TNBC is associated with poor prognosis and limited treatment options, highlighting the urgent need for innovative therapeutic approaches. Chimeric Antigen Receptor T-cell (CAR-T) therapy represents a groundbreaking immunotherapy that genetically modifies a patient’s T cells to target and eliminate cancer cells. Nanobodies, derived from single-domain antibodies, are small and highly specific antibody fragments with enhanced tumor penetration and stability compared to traditional antibodies. The development of nanobody-based CAR-T therapy integrates the precision of nanobodies with the efficacy of CAR-T cells, offering a novel strategy to combat TNBC. This project aims to optimize nanobody-based CAR-T constructs to selectively target TNBC cells while minimizing off-target effects, representing a significant advancement in personalized cancer immunotherapy."
+  },
+  {
+    "objectID": "education/index.html",
+    "href": "education/index.html",
+    "title": "Education",
+    "section": "",
+    "text": "CASE WESTERN RESERVE UNIVERSIRY\n2023 - present Ph.D. Biomedical Sciences Training Program\nJOHNS HOPKINS UNIVERSITY\n2021 - 2023 M.S. in Biotechnology\nCHINA PHARMACEUTICAL UNIVERSITY\n2017 - 2021 B.S. in Medicinal Chemistry"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n\n\n\n\nWelcome!\nMy name is Ruoxuan Li. I am a current second-year PhD student in the Biomedical Sciences Training Program at Case Western Reserve University, where I am pursuing the Cancer Biology track and working in Dr. Mark Jackson’s laboratory. My research focuses on advancing innovative therapies to improve outcomes for patients with triple-negative breast cancer, a challenging and aggressive subtype with limited treatment options.\nIn particular, I am investigating the development of Nanobody-Based CAR-T therapy for Triple-Negative Breast Cancer. My research combines cutting-edge techniques in molecular biology, immunology, and genetic engineering to enhance the therapeutic potential of CAR-T cells.\nPlease feel free to contact me if you have any questions or would like to discuss potential projects!"
+  }
+]
