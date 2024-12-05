@@ -1,0 +1,27 @@
+---
+about:
+  template: jolla
+  id: about-block
+  image: "img/RL.jpg"
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/marvinschmitt
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ruoxuan-li-b9870422a/
+    - icon: envelope
+      text: Email
+      href: "mailto:rxl884@case.edu"
+---
+
+::: {#about-block}
+:::
+
+# Welcome!
+
+My name is Ruoxuan Li. I am a current second-year PhD student in the Biomedical Sciences Training Program at Case Western Reserve University, where I am pursuing the Cancer Biology track and working in Dr. Mark Jackson's laboratory. My research focuses on advancing innovative therapies to improve outcomes for patients with triple-negative breast cancer, a challenging and aggressive subtype with limited treatment options.
+
+In particular, I am investigating the development of Nanobody-Based CAR-T therapy for Triple-Negative Breast Cancer. My research combines cutting-edge techniques in molecular biology, immunology, and genetic engineering to enhance the therapeutic potential of CAR-T cells.
+
+Please feel free to [contact me](mailto:rxl884@case.edu) if you have any questions or would like to discuss potential projects!
