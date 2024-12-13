@@ -1,0 +1,272 @@
+---
+title: "Education and Mental Health"
+author: ""
+format:
+  dashboard:
+    logo: images/cat.png
+    theme: sandstone
+    nav-buttons: [github]
+    github: https://github.com/ruoxuanli53
+---
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(haven)
+library(dplyr)
+library(janitor)
+library(ggplot2)
+library(DT)
+library(gt)
+library(MASS)
+theme_set(theme_minimal(base_size = 24, base_family = "sans"))
+```
+
+```{r}
+#| label: load-data
+#| message: false
+
+NHANES_Edu <- readRDS("NHANES_Edu.rds")
+```
+
+# ALL
+
+```{r}
+#| label: prep-data
+
+# Calculate the proportion of individuals with the highest education level
+education_highest <- NHANES_Edu |>
+  filter(edu == "College Grad") |>
+  summarise(highest_edu_prop = n() / nrow(NHANES_Edu) * 100) |>
+  pull(highest_edu_prop) |>
+  sprintf(fmt = "%.1f%%")
+
+# Calculate proportion of individuals with higher education levels reporting "None" or "Mild" depression
+healthy_mental <- NHANES_Edu |>
+  filter(edu %in% c("Some College", "College Grad")) |>
+  filter(depression %in% c("None", "Mild")) |>
+  summarise(healthy_prop = n() / nrow(NHANES_Edu) * 100) |>
+  pull(healthy_prop) |>
+  sprintf(fmt = "%.1f%%")
+
+```
+
+## Row {height=20%}
+
+```{r}
+#| content: valuebox
+#| title: "College Graduates"
+
+list(
+  icon = "file-medical",
+  value = education_highest,
+  color = "blue"
+)
+
+```
+
+```{r}
+#| content: valuebox
+#| title: "Mentally Healthy"
+
+list(
+  icon = "clipboard2-pulse",
+  value = healthy_mental,
+  color = "orange"
+)
+```
+
+## Row {height=40%}
+
+### Column
+
+```{r}
+#| title: Education Level Breakdown
+
+# Generate the proportional horizontal stacked bar chart with bolder colors
+filtered_NHANES_Edu <- NHANES_Edu |>
+  filter(!is.na(edu)) 
+
+ggplot(filtered_NHANES_Edu, aes(x = "", fill = edu)) +
+  geom_bar(position = "fill", width = 0.5) +  # Narrower bar width
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_brewer(palette = "Set2") +  # Use a bolder color palette
+  coord_flip() +
+  labs(
+    x = "",
+    y = "",
+    fill = "Education Level"
+  ) +
+  theme_minimal(base_size = 14) +  # Larger font size for readability
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),  # Centered and bold title
+    legend.position = "right",  # Move legend to the side
+    panel.grid.minor = element_blank(),  # Remove minor grid lines
+    panel.grid.major.y = element_blank()  # Remove horizontal grid lines
+  )
+
+```
+
+### Column
+
+```{r}
+#| title: Time in US
+
+time_in_us_summary <- NHANES_Edu |>
+  filter(!is.na(time_in_us)) |> 
+  group_by(time_in_us) |>
+  summarise(
+    count = n(),
+    proportion = round((n() / nrow(NHANES_Edu)) * 100, 1)
+  ) |>
+  arrange(desc(count))
+
+time_in_us_table <- time_in_us_summary |>
+  gt() |>
+  cols_label(
+    time_in_us = "Time in US",
+    count = "Number of Participants",
+    proportion = "Proportion (%)"
+  ) |>
+  fmt_number(
+    columns = vars(proportion),
+    decimals = 1
+  ) |>
+  tab_options(
+    table.font.size = "small",
+    heading.align = "center"
+  )
+
+time_in_us_table
+```
+
+## Row {height="40%" .tabset}
+
+```{r}
+Edu_mental <- NHANES_Edu |>
+  dplyr::select(seqn, age, edu, depression, time_in_us)
+
+Edu_mental <- Edu_mental |>
+  filter(!is.na(depression), !is.na(edu), !is.na(time_in_us)) |> # Remove NAs
+  mutate(
+    depression = factor(
+      depression,
+      levels = c("None", "Mild", "Moderate", "Severe"),
+      ordered = TRUE
+    )
+  )
+
+```
+
+```{r}
+#| title: Education Level
+Edu_mental |>
+  ggplot(aes(x = edu, fill = depression)) +
+  geom_bar(position = "fill", width = 0.7) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Depression Proportions by Education Level",
+    x = "Education Level",
+    y = "Proportion",
+    fill = "Depression Severity"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+```
+
+```{r}
+#| title: Education Level and Time in US
+Edu_mental |>
+  ggplot(aes(x = edu, fill = depression)) +
+  geom_bar(position = "fill", width = 0.7) +
+  facet_wrap(~time_in_us, nrow = 1, labeller = label_both) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Depression by Education Level across Time in US Categories",
+    x = "Education Level",
+    y = "Proportion",
+    fill = "Depression Severity"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        strip.text = element_text(face = "bold"))
+```
+
+
+# BLOG
+::: {.card title="Research questioin"}
+ 
+- How does education level correlate with mental well-being (e.g., levels of depression)?
+- Does the length of time living in the US serve as an additional predictor beyond education level?
+
+:::
+
+::: {.card title="Hypothesis"}
+
+We hypothesize that individuals with higher education levels (e.g., College Graduates) are less likely to experience more severe depression. Additionally, we expect the length of time living in the US to serve as a modifying factor in depression severity, with those living in the US for longer periods potentially reporting lower levels of depression.
+
+:::
+
+## Row {height=70% .tabset}
+
+```{r}
+#| title: Ordinal Logistic Regression
+
+ordinal_model <- polr(
+  formula = depression ~ edu + time_in_us,
+  data = Edu_mental,
+  Hess = TRUE
+)
+
+summary(ordinal_model)
+
+coefs <- summary(ordinal_model)$coefficients
+p_values <- 2 * (1 - pnorm(abs(coefs[, "t value"])))
+p_values
+```
+
+::: {.card title="Analysis"}
+
+- Higher education levels are associated with significantly lower odds of experiencing severe depression. Specifically, individuals with a college degree (College Grad) have the lowest odds of reporting more severe depression, as indicated by the negative coefficients for each education category.
+- The p-values for all education categories and the time spent in the U.S. are highly significant, with values for "eduCollege Grad" (p < 0.00000000001) and "eduSome College" (p < 0.01), confirming the strength of these associations.
+- Additionally, time spent in the U.S. did not appear to have a significant effect, with p-values indicating no substantial impact on depression severity.
+:::
+
+
+## Row
+::: {.card title="Conlcusion"}
+ 
+In conclusion, education is a strong factor in predicting mental health outcomes, particularly in reducing the severity of depression. Higher education levels are associated with significantly lower odds of experiencing severe depression, likely due to the increased access to resources, improved coping mechanisms, and better overall socio-economic conditions that typically accompany higher levels of education. Time in the U.S. showed no significant additional effect in the model.
+
+:::
+# DATA
+
+## Row 
+```{r}
+NHANES_Edu |>
+  arrange(seqn) |>
+  datatable(
+    colnames = c("No", "ID", "RIDSTATR", "Age", "Time in Us", "Edu", "Depression"),
+    options = list(dom = 'ftp', paging = TRUE)
+    )
+```
+
+
+## Row
+
+::: {.card title="Codebook"}
+ 
+Variable | Role | Old Name | Description 
+:--------: | :----: | :--------: | :-----------: 
+**ID** | ID | `SEQN` | Respondent sequence number
+**RIDSTATR** | ID | `RIDSTATR` | Interview and examination status of the participant. "2" - Both interviewed and examined
+**Age** | ID | `RIDAGEYR` | Respondent sequence number
+**Time in Us** | Additional predictor | `DMDYRUSZ` | Length of time the participant has been in the US
+**Edu** | Main predictor | `DMDEDUC2` | "Less than HS" - less than 11th grade, "HS Grad" - high school graduate/GED or equivalent, "Some College" - some college or AA degree, "College Grad" - college graduate or above
+**Depression** | Outcome | `DPQ020` | "None" - not at all, "Mild" - several days, "Moderate" - more than half the days, "Severe" - nearly every day
+
+:::
+
+

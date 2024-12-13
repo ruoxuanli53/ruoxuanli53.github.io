@@ -23,6 +23,8 @@ website:
         href: cv/index.qmd
       - text: "My Life"
         href: life/index.qmd
+      - text: "Dashboard"
+        href: dashboard/dashboard_RL.qmd
     
     # your social media handles
     right:
@@ -30,7 +32,7 @@ website:
         href: https://www.linkedin.com/in/ruoxuan-li-b9870422a/
       - icon: envelope
         aria-label: email
-        href: "mailto:rxl884@case.edu"  
+        href: "mailto:rxl884@case.edu"
   
   
 
