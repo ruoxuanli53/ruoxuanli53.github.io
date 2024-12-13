@@ -24,7 +24,7 @@ website:
       - text: "My Life"
         href: life/index.qmd
       - text: "Dashboard"
-        href: dashboard/dashboard_RL.qmd
+        href: dashboard/index.qmd
     
     # your social media handles
     right:

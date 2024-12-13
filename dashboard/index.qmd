@@ -1,0 +1,16 @@
+---
+title: Dashboard
+---
+
+## Education and Mental Health
+
+
+::: {layout-ncol=2}
+
+![](depression_edu.png)
+
+:::
+
+Education is a strong factor in predicting mental health outcomes, particularly in reducing the severity of depression. Higher education levels are associated with significantly lower odds of experiencing severe depression, likely due to the increased access to resources, improved coping mechanisms, and better overall socio-economic conditions that typically accompany higher levels of education. 
+
+
